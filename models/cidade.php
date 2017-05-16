@@ -11,7 +11,7 @@ class cidade {
 
 	public function getRestCidades(){
 
-		$arr = file_get_contents('http://localhost:8080/cidades');  
+		$arr = file_get_contents('https://api-unisal-calculo-frete-2.herokuapp.com/cidades');  
 
 		$arr = json_decode($arr); 
 
@@ -30,7 +30,7 @@ class cidade {
 		$json = json_encode( $post_array );
 
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, "http://localhost:8080/cidades/novo");
+		curl_setopt($ch, CURLOPT_URL, "https://api-unisal-calculo-frete-2.herokuapp.com/novo");
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($json)));
@@ -42,7 +42,7 @@ class cidade {
 
 	public function getFrete(){
 		
-		$frete = file_get_contents("http://localhost:8080/cidades/calculo/".$this->cidadeA."/".$this->cidadeB.""); 
+		$frete = file_get_contents("https://api-unisal-calculo-frete-2.herokuapp.com/cidades/calculo/".$this->cidadeA."/".$this->cidadeB.""); 
 		$frete = json_decode($frete);
 
 		return $frete;
