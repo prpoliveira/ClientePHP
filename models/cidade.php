@@ -30,7 +30,7 @@ class cidade {
 		$json = json_encode( $post_array );
 
 		$ch = curl_init();
-		curl_setopt($ch, CURLOPT_URL, "https://api-unisal-calculo-frete-2.herokuapp.com/novo");
+		curl_setopt($ch, CURLOPT_URL, "https://api-unisal-calculo-frete-2.herokuapp.com/cidades/novo");
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json','Content-Length: ' . strlen($json)));
